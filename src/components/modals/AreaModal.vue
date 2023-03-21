@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue"
-import PlusIcon from "@/components/icon/PlusIcon.vue";
-import CloseButton from "@/components/CloseButton.vue";
+import PlusIcon from "@/components/icons/PlusIcon.vue";
+import CloseButton from "@/components/buttons/CloseButton.vue";
 import CreateAreaModal from "@/components/modals/CreateAreaModal.vue";
 
 defineProps({
