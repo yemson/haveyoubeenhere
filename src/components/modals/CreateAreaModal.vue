@@ -13,7 +13,7 @@ defineEmits(['close'])
       class="flex items-start justify-center min-h-screen pt-24 text-center"
     >
       <div
-        class="bg-white rounded-lg text-left overflow-hidden shadow-xl p-8 2xl:w-1/4 xl:w-1/4 lg:w-1/3 md:2/5 sm:w-1/2 w-full 2xl:sm:m-0 m-8"
+        class="bg-white rounded-lg text-left overflow-hidden shadow-xl p-8 2xl:w-1/4 xl:w-1/4 lg:w-1/3 md:2/5 sm:w-1/2 w-full sm:m-0 m-4"
       >
         <div class="flex">
           <div class="font-extrabold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">
