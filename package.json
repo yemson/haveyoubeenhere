@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vueup/vue-quill": "^1.1.1",
+    "firebase": "^9.18.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
