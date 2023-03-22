@@ -1,6 +1,6 @@
 <script setup>
-import CloseButton from "@/components/buttons/CloseButton.vue";
-import SubmitButton from "@/components/buttons/SubmitButton.vue";
+import CloseButton from '@/components/buttons/CloseButton.vue'
+import SubmitButton from '@/components/buttons/SubmitButton.vue'
 
 defineEmits(['close'])
 </script>

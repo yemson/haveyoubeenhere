@@ -1,9 +1,9 @@
 <script setup>
-import { ref } from "vue"
-import CloseButton from "@/components/buttons/CloseButton.vue"
-import SubmitButton from "@/components/buttons/SubmitButton.vue"
-import { auth } from "@/firebase"
-import { setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from "firebase/auth";
+import { ref } from 'vue'
+import CloseButton from '@/components/buttons/CloseButton.vue'
+import SubmitButton from '@/components/buttons/SubmitButton.vue'
+import { auth } from '@/firebase'
+import { setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from 'firebase/auth'
 
 const emits = defineEmits(['close'])
 
@@ -30,7 +30,7 @@ function login() {
           authUserNotFound.value = true
         }
         console.log(errorCode)
-      });
+      })
 }
 </script>
 
