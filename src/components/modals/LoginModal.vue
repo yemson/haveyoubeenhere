@@ -4,6 +4,7 @@ import CloseButton from '@/components/buttons/CloseButton.vue'
 import SubmitButton from '@/components/buttons/SubmitButton.vue'
 import { auth } from '@/firebase'
 import { setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from 'firebase/auth'
+import RegisterModal from '@/components/modals/RegisterModal.vue'
 
 const emits = defineEmits(['close'])
 
@@ -11,6 +12,7 @@ const inputEmail = ref('')
 const inputPassword = ref('')
 const authInvalidEmail = ref(false)
 const authUserNotFound = ref(false)
+const registerModalVisible = ref(false)
 
 function login() {
   authInvalidEmail.value = false
@@ -31,6 +33,14 @@ function login() {
         }
         console.log(errorCode)
       })
+}
+
+function openRegisterModal() {
+  registerModalVisible.value = true
+}
+
+function closeRegisterModal() {
+  registerModalVisible.value = false
 }
 </script>
 
@@ -94,7 +104,26 @@ function login() {
           />
           <CloseButton @click="$emit('close')" />
         </div>
+        <button
+          class="text-slate-600 text-sm underline mt-6"
+          @click="openRegisterModal"
+        >
+          회원이 아니신가요?
+        </button>
       </div>
     </div>
+    <Transition
+      enter-active-class="transition ease-out duration-200 transform"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition ease-in duration-200 transform"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <RegisterModal
+        v-if="registerModalVisible"
+        @close="closeRegisterModal"
+      />
+    </Transition>
   </div>
 </template>
