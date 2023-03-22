@@ -8,7 +8,6 @@ const authStore = useAuthStore()
 
 onMounted(() => {
   authStore.checkLoginState()
-  console.log('asdf')
 })
 </script>
 
