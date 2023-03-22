@@ -1,8 +1,32 @@
 <script setup>
+import { ref } from 'vue'
 import CloseButton from '@/components/buttons/CloseButton.vue'
 import SubmitButton from '@/components/buttons/SubmitButton.vue'
+import { db } from '@/firebase'
+import { addDoc, collection } from 'firebase/firestore'
+import { useAuthStore } from '@/stores/auth'
 
-defineEmits(['close'])
+const emits = defineEmits(['close'])
+
+const props =  defineProps({
+  area: {
+    required: true,
+    type: String,
+    default: ''
+  }
+})
+
+const inputTextarea = ref()
+const authStore = useAuthStore()
+
+async function saveArea() {
+  const docRef = await addDoc(collection(db, `users/${authStore.userInfo.uid}/${props.area}`), {
+    content: inputTextarea.value,
+    createdAt: new Date()
+  })
+  emits('close')
+  console.log('Document written with ID: ', docRef.id)
+}
 </script>
 
 <template>
@@ -21,10 +45,14 @@ defineEmits(['close'])
           </div>
         </div>
         <div class="flex flex-col mt-4">
-          <textarea class="bg-slate-100 rounded h-[10rem] p-2 text-slate-700 border-0 focus:ring-0" />
+          <textarea
+            v-model="inputTextarea"
+            class="bg-slate-100 rounded h-[10rem] p-2 text-slate-700 border-0 focus:ring-0"
+          />
           <hr class="my-5">
           <SubmitButton
             text="작성"
+            @click="saveArea"
           />
           <CloseButton
             class="mt-4"
