@@ -1,13 +1,13 @@
 <script setup>
 import MapBox from '@/components/MapBox.vue'
 import NavBar from '@/components/NavBar.vue'
-import { useAuthStore } from '@/stores/auth'
+import { useUserStore } from '@/stores/user'
 import { onMounted } from 'vue'
 
-const authStore = useAuthStore()
+const userStore = useUserStore()
 
-onMounted(() => {
-  authStore.checkLoginState()
+onMounted( () => {
+  userStore.checkUserState()
 })
 </script>
 

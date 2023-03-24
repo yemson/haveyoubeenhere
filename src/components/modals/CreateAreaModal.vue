@@ -3,12 +3,12 @@ import { ref } from 'vue'
 import CloseButton from '@/components/buttons/CloseButton.vue'
 import SubmitButton from '@/components/buttons/SubmitButton.vue'
 import { db } from '@/firebase'
-import { addDoc, collection } from 'firebase/firestore'
-import { useAuthStore } from '@/stores/auth'
+import {addDoc, collection } from 'firebase/firestore'
+import { useUserStore } from '@/stores/user'
 
 const emits = defineEmits(['close'])
 
-const props =  defineProps({
+const props = defineProps({
   area: {
     required: true,
     type: String,
@@ -17,12 +17,12 @@ const props =  defineProps({
 })
 
 const inputTextarea = ref()
-const authStore = useAuthStore()
+const userStore = useUserStore()
 
-function saveArea() {
-  addDoc(collection(db, `users/${authStore.userInfo.uid}/${props.area}`), {
+function saveAreaData() {
+  addDoc(collection(db, `${userStore.getUserInfo.uid}`), {
     content: inputTextarea.value,
-    createdAt: new Date()
+    area: props.area
   }).then(() => {
     emits('close')
   })
@@ -52,7 +52,7 @@ function saveArea() {
           <hr class="my-5">
           <SubmitButton
             text="작성"
-            @click="saveArea"
+            @click="saveAreaData"
           />
           <CloseButton
             class="mt-4"
