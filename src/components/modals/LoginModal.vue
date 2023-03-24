@@ -49,10 +49,10 @@ function closeRegisterModal() {
     class="fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50"
   >
     <div
-      class="flex items-start justify-center min-h-screen pt-16 text-center"
+      class="flex items-start justify-center text-center"
     >
       <div
-        class="bg-white overflow-hidden rounded-lg shadow-xl p-8 2xl:w-1/4 xl:w-1/4 lg:w-1/3 md:2/5 sm:w-1/2 w-full sm:m-0 m-4"
+        class="bg-white overflow-hidden rounded-lg shadow-xl p-8 2xl:w-1/4 xl:w-1/4 lg:w-1/3 md:2/5 sm:w-1/2 w-full m-4"
       >
         <div class="flex">
           <div class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">
