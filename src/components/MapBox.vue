@@ -17,193 +17,34 @@ function closeAreaModal() {
   areaModalVisible.value = false
 }
 
-const gangwonClass = computed(() => {
-  const length = userStore.gangwonAreaData.length
+function getAreaClass(areaData) {
+  const length = areaData.length
   let className = 'fill-slate-50'
   if (length > 0) {
     className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
   }
   return {
-    [className]: true
+    [className]: true,
   }
-})
+}
 
-const seoulClass = computed(() => {
-  const length = userStore.seoulAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const busanClass = computed(() => {
-  const length = userStore.busanAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const incheonClass = computed(() => {
-  const length = userStore.incheonAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const daeguClass = computed(() => {
-  const length = userStore.daeguAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const daejeonClass = computed(() => {
-  const length = userStore.daejeonAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-
-const gwangjuClass = computed(() => {
-  const length = userStore.gwangjuAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const ulsanClass = computed(() => {
-  const length = userStore.ulsanAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const jejuClass = computed(() => {
-  const length = userStore.jejuAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const jeonbukClass = computed(() => {
-  const length = userStore.jeonbukAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const jeonnamClass = computed(() => {
-  const length = userStore.jeonnamAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const gyeongbukClass = computed(() => {
-  const length = userStore.gyeongbukAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const gyeongnamClass = computed(() => {
-  const length = userStore.gyeongnamAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const chungcheongnamClass = computed(() => {
-  const length = userStore.chungcheongnamAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const sejongClass = computed(() => {
-  const length = userStore.sejongAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const chungcheongbukClass = computed(() => {
-  const length = userStore.chungcheongbukAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
-
-const gyeonggiClass = computed(() => {
-  const length = userStore.gyeonggiAreaData.length
-  let className = 'fill-slate-50'
-  if (length > 0) {
-    className = length > 9 ? 'fill-green-900' : `fill-green-${length * 100}`
-  }
-  return {
-    [className]: true
-  }
-})
+const gangwonClass = computed(() => getAreaClass(userStore.gangwonAreaData))
+const seoulClass = computed(() => getAreaClass(userStore.seoulAreaData))
+const busanClass = computed(() => getAreaClass(userStore.busanAreaData))
+const incheonClass = computed(() => getAreaClass(userStore.incheonAreaData))
+const daeguClass = computed(() => getAreaClass(userStore.daeguAreaData))
+const daejeonClass = computed(() => getAreaClass(userStore.daejeonAreaData))
+const gwangjuClass = computed(() => getAreaClass(userStore.gwangjuAreaData))
+const ulsanClass = computed(() => getAreaClass(userStore.ulsanAreaData))
+const jejuClass = computed(() => getAreaClass(userStore.jejuAreaData))
+const jeonbukClass = computed(() => getAreaClass(userStore.jeonbukAreaData))
+const jeonnamClass = computed(() => getAreaClass(userStore.jeonnamAreaData))
+const gyeongbukClass = computed(() => getAreaClass(userStore.gyeongbukAreaData))
+const gyeongnamClass = computed(() => getAreaClass(userStore.gyeongnamAreaData))
+const chungcheongnamClass = computed(() => getAreaClass(userStore.chungcheongnamAreaData))
+const sejongClass = computed(() => getAreaClass(userStore.sejongAreaData))
+const chungcheongbukClass = computed(() => getAreaClass(userStore.chungcheongbukAreaData))
+const gyeonggiClass = computed(() => getAreaClass(userStore.gyeonggiAreaData))
 </script>
 
 <template>
