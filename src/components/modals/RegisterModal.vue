@@ -14,24 +14,6 @@ const authAlreadyInUse = ref(false)
 const authInvalidEmail = ref(false)
 const authInvalidPassword = ref(false)
 const authWeekPassword = ref(false)
-// const initData = {
-//   seoul: {},
-//   busan: {},
-//   daegu: {},
-//   incheon: {},
-//   gwangju: {},
-//   Daejeon: {},
-//   gyeonggi: {},
-//   gangwon: {},
-//   north_chungcheong: {},
-//   south_chungcheong: {},
-//   north_jeolla: {},
-//   south_jeolla: {},
-//   north_gyeongsang: {},
-//   south_gyeongsang: {},
-//   jeju: {},
-//   sejong: {},
-// }
 
 function register() {
   authAlreadyInUse.value = false

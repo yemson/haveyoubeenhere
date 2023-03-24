@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import LoginModal from '@/components/modals/LoginModal.vue'
-import { useAuthStore } from '@/stores/auth'
+import { useUserStore } from '@/stores/user'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase'
 
 const loginModalVisible = ref(false)
-const authStore = useAuthStore()
+const userStore = useUserStore()
 
 function openLoginModal() {
   loginModalVisible.value = true
@@ -34,7 +34,7 @@ function logout() {
       여기가봤어?
     </router-link>
     <button
-      v-if="authStore.userInfo == null"
+      v-if="userStore.getUserInfo == null"
       class="text-xl font-bold place-self-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600"
       @click="openLoginModal"
     >
@@ -45,7 +45,7 @@ function logout() {
       class="md:text-xl text-md font-bold place-self-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600"
       @click="logout"
     >
-      {{ authStore.userInfo.email }}
+      {{ userStore.getUserInfo.email }}
     </button>
   </div>
   <Transition

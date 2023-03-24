@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import PlusIcon from '@/components/icons/PlusIcon.vue'
 import CloseButton from '@/components/buttons/CloseButton.vue'
 import CreateAreaModal from '@/components/modals/CreateAreaModal.vue'
-import { useAuthStore } from '@/stores/auth'
+import { useUserStore } from '@/stores/user'
 import { db } from '@/firebase'
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore'
 
@@ -22,7 +22,7 @@ onMounted(() => {
 defineEmits(['close'])
 
 const createAreaModalVisible = ref(false)
-const authStore = useAuthStore()
+const userStore = useUserStore()
 const areaContents = ref([])
 
 function openCreateAreaModal() {
@@ -34,8 +34,8 @@ function closeCreateAreaModal() {
 }
 
 function getAreaContent() {
-  if (authStore.userInfo !== null) {
-    const q = query(collection(db, `users/${authStore.userInfo.uid}/${props.area}`), orderBy('createdAt', 'desc'))
+  if (userStore.getUserInfo !== null) {
+    const q = query(collection(db, `users/${userStore.getUserInfo.uid}/${props.area}`), orderBy('createdAt', 'desc'))
     onSnapshot(q, (snapshot) => {
       areaContents.value = []
       snapshot.forEach((doc) => {
@@ -64,14 +64,14 @@ function getAreaContent() {
             {{ area }}
           </div>
           <button
-            v-if="authStore.userInfo != null"
+            v-if="userStore.getUserInfo != null"
             @click="openCreateAreaModal"
           >
             <PlusIcon class="stroke-slate-400 hover:stroke-slate-500 w-8 h-8" />
           </button>
         </div>
         <div
-          v-if="authStore.userInfo != null"
+          v-if="userStore.getUserInfo != null"
           class="overflow-y-scroll sm:h-[26rem] h-[20rem] mt-6 space-y-3"
         >
           <div
