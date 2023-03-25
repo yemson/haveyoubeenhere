@@ -50,7 +50,7 @@ const gyeonggiClass = computed(() => getAreaClass(userStore.gyeonggiAreaData))
 <template>
   <div class="flex justify-center">
     <svg
-      class="2xl:w-1/4 xl:w-1/2 lg:w-96 md:w-80 sm:w-72 w-[20rem] my-4"
+      class="2xl:w-1/4 xl:w-1/3 lg:w-96 md:w- sm:w-72 w-[20rem] my-4"
       viewBox="0 0 350 630"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
