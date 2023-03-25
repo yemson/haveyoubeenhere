@@ -5,7 +5,7 @@ import CloseButton from '@/components/buttons/CloseButton.vue'
 import CreateAreaModal from '@/components/modals/CreateAreaModal.vue'
 import { useUserStore } from '@/stores/user'
 import { db } from '@/firebase'
-import { query, collection, orderBy, onSnapshot } from 'firebase/firestore'
+import { query, collection, where, onSnapshot } from 'firebase/firestore'
 
 const props = defineProps({
   area: {
@@ -35,7 +35,7 @@ function closeCreateAreaModal() {
 
 function getAreaContent() {
   if (userStore.getUserInfo !== null) {
-    const q = query(collection(db, `users/${userStore.getUserInfo.uid}/${props.area}`), orderBy('createdAt', 'desc'))
+    const q = query(collection(db, `${userStore.getUserInfo.uid}`), where('area', '==', `${props.area}`))
     onSnapshot(q, (snapshot) => {
       areaContents.value = []
       snapshot.forEach((doc) => {
@@ -79,7 +79,16 @@ function getAreaContent() {
             :key="areaContent"
             class="border w-full h-32 rounded"
           >
-            {{ areaContent.content }}
+            <div class="flex">
+              <img
+                src="https://picsum.photos/200/200"
+                alt="사진"
+                width="126"
+              >
+              <div class="p-2 px-3 overflow-scroll">
+                {{ areaContent.content }}
+              </div>
+            </div>
           </div>
         </div>
         <div
