@@ -77,18 +77,9 @@ function getAreaContent() {
           <div
             v-for="areaContent in areaContents"
             :key="areaContent"
-            class="border w-full h-32 rounded"
+            class="border w-full h-32 rounded py-2.5 px-4"
           >
-            <div class="flex">
-              <img
-                src="https://picsum.photos/200/200"
-                alt="사진"
-                width="126"
-              >
-              <div class="p-2 px-3 overflow-scroll">
-                {{ areaContent.content }}
-              </div>
-            </div>
+            {{ areaContent.content }}
           </div>
         </div>
         <div

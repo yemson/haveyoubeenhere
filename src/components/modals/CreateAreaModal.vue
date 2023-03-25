@@ -22,7 +22,8 @@ const userStore = useUserStore()
 function saveAreaData() {
   addDoc(collection(db, `${userStore.getUserInfo.uid}`), {
     content: inputTextarea.value,
-    area: props.area
+    area: props.area,
+    created: new Date()
   }).then(() => {
     emits('close')
   })
