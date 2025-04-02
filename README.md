@@ -46,7 +46,7 @@ src/
 
 1. 저장소 클론하기
    ```bash
-   git clone https://github.com/yourusername/haveyoubeenhere.git
+   git clone https://github.com/yemson/haveyoubeenhere.git
    cd haveyoubeenhere
    ```
 
